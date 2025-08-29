@@ -3,6 +3,8 @@ package bo.anzar.hotel_manage.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -25,6 +27,10 @@ public class Room {
     private Boolean available;
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private java.util.List<Reservation> reservations;
+    private List<Reservation> reservations;
 
+    @PrePersist
+    public void prePersist() {
+        this.available = false;
+    }
 }
