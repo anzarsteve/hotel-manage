@@ -1,5 +1,6 @@
 package bo.anzar.hotel_manage.service.impl;
 
+import bo.anzar.hotel_manage.exception.ModelNotFoundException;
 import bo.anzar.hotel_manage.model.Reservation;
 import bo.anzar.hotel_manage.model.Room;
 import bo.anzar.hotel_manage.repo.IGenericRepo;
@@ -28,13 +29,9 @@ public class RoomServiceImpl extends CRUDImpl<Room, Integer> implements IRoomSer
     }
 
     @Override
-    public Room updateRoomById(Integer idRoom) {
-//        Room room = roomRepo.findById(idRoom).orElse(null);
-//        if (room != null) {
-//            room.setAvailable(!room.isAvailable());
-//            return roomRepo.save(room);
-//        }
-        return null;
+    public void updateRoomById(Integer idRoom) {
+        roomRepo.updateRoomById(idRoom);
+        //return roomRepo.save(room);
     }
 
     @Override

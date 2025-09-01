@@ -1,5 +1,6 @@
 package bo.anzar.hotel_manage.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,6 +27,7 @@ public class Room {
 
     private Boolean available;
 
+    @JsonIgnoreProperties({"reservations"})
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reservation> reservations;
 

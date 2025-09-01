@@ -9,4 +9,5 @@ public interface IReservationService extends ICRUD<Reservation, Integer> {
     Reservation saveTransactional(Reservation reservation);
     List<Reservation> searchAll();
 
+    Reservation createReservation(Reservation reservation);
 }
